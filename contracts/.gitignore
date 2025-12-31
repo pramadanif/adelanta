@@ -1,0 +1,16 @@
+# Build artifacts
+target/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+
+# Deployment
+.contract_id
+.soroban/
+
+# Logs
+*.log

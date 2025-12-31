@@ -2,10 +2,12 @@
 
 import React, { useMemo, useState, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 import { LanguageSelect } from '@/components/LanguageSelect';
 import { useLocale } from '@/components/LocaleProvider';
+import { WalletButton, NetworkBadge } from '@/components/WalletButton';
 
 export const Header: React.FC = () => {
   const pathname = usePathname();
@@ -32,7 +34,7 @@ export const Header: React.FC = () => {
       { key: 'nav.sme', href: '/sme' },
       { key: 'nav.investor', href: '/investor' },
     ];
-  }, [isHome, t]);
+  }, [isHome]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -47,14 +49,21 @@ export const Header: React.FC = () => {
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
         {/* Logo */}
         <Link href={isHome ? '#' : '/'} className="flex items-center gap-2 group">
-          <div className="w-10 h-10 bg-accent rounded-br-xl rounded-tl-xl flex items-center justify-center text-white font-bold text-xl group-hover:scale-105 transition-transform">
-            A
+          <div className="w-10 h-10 rounded-lg overflow-hidden bg-white/10 flex items-center justify-center group-hover:scale-105 transition-transform">
+            <Image
+              src="/logo.png"
+              alt="Adelanta Logo"
+              width={40}
+              height={40}
+              className="object-contain"
+              priority
+            />
           </div>
           <span className="text-white font-heading font-bold text-2xl tracking-tight">Adelanta</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-6">
           {links.map((link) => (
             <a 
               key={link.key} 
@@ -65,8 +74,10 @@ export const Header: React.FC = () => {
             </a>
           ))}
           <LanguageSelect />
+          <NetworkBadge className="hidden xl:flex" />
+          <WalletButton variant="compact" />
           {isHome ? (
-            <a href="#cta" className="bg-accent hover:bg-orange-600 text-white font-bold py-2 px-6 rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+            <a href="#cta" className="bg-accent hover:bg-orange-600 text-white font-bold py-2 px-5 rounded-full transition-all shadow-md hover:shadow-lg transform hover:-translate-y-0.5 text-sm">
               {t('cta.start')}
             </a>
           ) : null}
@@ -98,6 +109,10 @@ export const Header: React.FC = () => {
 
           <div className="px-2">
             <LanguageSelect compact />
+          </div>
+
+          <div className="px-2">
+            <WalletButton />
           </div>
 
           {isHome ? (

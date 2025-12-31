@@ -45,12 +45,12 @@ export const Features: React.FC = () => {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f, i) => (
               <Reveal key={i} delay={i * 100}>
-                <div className="group p-6 rounded-2xl bg-neutral hover:bg-white border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300">
-                  <div className={`w-12 h-12 rounded-xl ${f.bg} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform`}>
+                <div className="group p-6 rounded-2xl bg-neutral hover:bg-white border border-transparent hover:border-gray-200 hover:shadow-xl transition-all duration-300 h-full flex flex-col">
+                  <div className={`w-12 h-12 rounded-xl ${f.bg} flex items-center justify-center mb-4 shadow-md group-hover:scale-110 transition-transform flex-shrink-0`}>
                     {f.icon}
                   </div>
                   <h3 className="font-bold text-lg text-gray-800 mb-2">{f.title}</h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">{f.desc}</p>
+                  <p className="text-sm text-gray-500 leading-relaxed flex-grow">{f.desc}</p>
                 </div>
               </Reveal>
             ))}
@@ -68,33 +68,33 @@ export const Features: React.FC = () => {
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
              {/* Primary User */}
              <Reveal delay={100}>
-              <div className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 hover:bg-white/15 transition-colors">
+              <div className="bg-white/10 backdrop-blur-md p-8 rounded-3xl border border-white/20 hover:bg-white/15 transition-colors h-full flex flex-col">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-accent rounded-full">
+                  <div className="p-3 bg-accent rounded-full flex-shrink-0">
                     <Briefcase size={32} />
                   </div>
                   <h3 className="text-2xl font-bold">{t('target.primaryTitle')}</h3>
                 </div>
-                <p className="text-blue-100 mb-8 text-lg">{t('target.primaryDesc')}</p>
-                <button className="w-full bg-white text-primary font-bold py-3 rounded-xl hover:bg-blue-50 transition-colors">
+                <p className="text-blue-100 mb-8 text-lg flex-grow">{t('target.primaryDesc')}</p>
+                <a href="/sme" className="w-full bg-white text-primary font-bold py-3 rounded-xl hover:bg-blue-50 transition-colors text-center block">
                   {t('target.primaryCta')}
-                </button>
+                </a>
               </div>
              </Reveal>
 
              {/* Secondary User */}
              <Reveal delay={200}>
-              <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors">
+              <div className="bg-white/5 backdrop-blur-md p-8 rounded-3xl border border-white/10 hover:bg-white/10 transition-colors h-full flex flex-col">
                 <div className="flex items-center gap-4 mb-6">
-                  <div className="p-3 bg-green-500 rounded-full">
+                  <div className="p-3 bg-green-500 rounded-full flex-shrink-0">
                     <TrendingUp size={32} />
                   </div>
                   <h3 className="text-2xl font-bold">{t('target.secondaryTitle')}</h3>
                 </div>
-                <p className="text-gray-300 mb-8 text-lg">{t('target.secondaryDesc')}</p>
-                <button className="w-full border-2 border-white/30 text-white font-bold py-3 rounded-xl hover:bg-white/10 transition-colors">
+                <p className="text-gray-300 mb-8 text-lg flex-grow">{t('target.secondaryDesc')}</p>
+                <a href="/investor" className="w-full border-2 border-white/30 text-white font-bold py-3 rounded-xl hover:bg-white/10 transition-colors text-center block">
                   {t('target.secondaryCta')}
-                </button>
+                </a>
               </div>
              </Reveal>
           </div>

@@ -1,0 +1,20 @@
+[package]
+name = "adelanta_invoice"
+version = "0.1.0"
+edition = "2021"
+authors = ["Adelanta Team"]
+description = "Programmable Factoring Protocol - Invoice Smart Contract for Stellar Soroban"
+license = "MIT"
+
+[lib]
+crate-type = ["cdylib"]
+doctest = false
+
+[dependencies]
+soroban-sdk = { version = "21.0.0" }
+
+[dev-dependencies]
+soroban-sdk = { version = "21.0.0", features = ["testutils"] }
+
+[features]
+testutils = ["soroban-sdk/testutils"]

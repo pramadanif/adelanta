@@ -6,22 +6,22 @@ import { Reveal } from './ui/Reveal';
 import { useLocale } from '@/components/LocaleProvider';
 
 const PainCard: React.FC<{ icon: React.ReactNode; title: string; desc: string }> = ({ icon, title, desc }) => (
-  <div className="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-red-400 hover:shadow-xl transition-shadow">
-    <div className="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center text-red-500 mb-6">
+  <div className="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-red-400 hover:shadow-xl transition-shadow h-full flex flex-col">
+    <div className="bg-red-50 w-16 h-16 rounded-full flex items-center justify-center text-red-500 mb-6 flex-shrink-0">
       {icon}
     </div>
     <h3 className="text-xl font-heading font-bold text-navy mb-3">{title}</h3>
-    <p className="text-gray-600 leading-relaxed">{desc}</p>
+    <p className="text-gray-600 leading-relaxed flex-grow">{desc}</p>
   </div>
 );
 
 const WhyStellarCard: React.FC<{ icon: React.ReactNode; title: string; desc: string }> = ({ icon, title, desc }) => (
-  <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-accent hover:translate-x-2 transition-transform">
-    <div className="text-primary mb-4">
+  <div className="bg-white p-8 rounded-xl shadow-md border-l-4 border-accent hover:translate-x-2 transition-transform h-full flex flex-col">
+    <div className="text-primary mb-4 flex-shrink-0">
       {icon}
     </div>
     <h3 className="text-xl font-heading font-bold text-navy mb-3">{title}</h3>
-    <p className="text-gray-800 text-sm leading-relaxed">{desc}</p>
+    <p className="text-gray-800 text-sm leading-relaxed flex-grow">{desc}</p>
   </div>
 );
 

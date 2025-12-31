@@ -180,6 +180,47 @@ export const translations = {
     "proof.carlosRole": "Inversor DeFi, México",
     "proof.earlyTracking": "Pilotos en 3 países | 50+ PYMEs | $2.5M en facturas tokenizadas",
 
+    // Roadmap
+    "roadmap.badge": "Roadmap de Desarrollo",
+    "roadmap.subtitle": "Nuestro camino hacia revolucionar el factoring en LATAM con tecnología blockchain.",
+    "roadmap.currentProgress": "MVP Completado - Contrato desplegado en Stellar Testnet",
+    "roadmap.complete": "✓ Completado",
+    "roadmap.upcoming": "Próximamente",
+    
+    // Phase 1
+    "roadmap.phase1": "Fase 1",
+    "roadmap.phase1Title": "MVP",
+    "roadmap.phase1Item1": "Desarrollo de smart contract en Rust/Soroban",
+    "roadmap.phase1Item2": "Despliegue del contrato en Stellar Testnet",
+    "roadmap.phase1Item3": "Servidor API backend con Express",
+    "roadmap.phase1Item4": "Dashboard frontend con Next.js",
+    "roadmap.phase1Item5": "Flujo demo completo (crear → financiar → liquidar)",
+    "roadmap.phase1Item6": "Soporte i18n (Español/Inglés)",
+    
+    // Phase 2
+    "roadmap.phase2": "Fase 2",
+    "roadmap.phase2Title": "Lanzamiento Beta",
+    "roadmap.phase2Item1": "Integración de wallet Freighter",
+    "roadmap.phase2Item2": "Integración real con Anchors (Anclap, Bitso)",
+    "roadmap.phase2Item3": "Integración KYC/KYB vía partners",
+    "roadmap.phase2Item4": "Primeras 100 PYMEs en México",
+    
+    // Phase 3
+    "roadmap.phase3": "Fase 3",
+    "roadmap.phase3Title": "Expansión de Mercado",
+    "roadmap.phase3Item1": "Lanzamiento en Colombia y Brasil",
+    "roadmap.phase3Item2": "Onboarding de LPs institucionales",
+    "roadmap.phase3Item3": "Modelo de scoring de riesgo con IA",
+    "roadmap.phase3Item4": "App móvil (React Native)",
+    
+    // Phase 4
+    "roadmap.phase4": "Fase 4",
+    "roadmap.phase4Title": "Escala",
+    "roadmap.phase4Item1": "Despliegue en Stellar Mainnet",
+    "roadmap.phase4Item2": "Expansión a Perú y Chile",
+    "roadmap.phase4Item3": "Integraciones DeFi (lending pools)",
+    "roadmap.phase4Item4": "Mercado secundario para tokens de facturas",
+
     // Conversion (Pricing/FAQ/CTA)
     "pricing.title": "Precios Transparentes",
     "pricing.subtitle": "Sin costos ocultos. Solo pagas cuando recibes liquidez.",
@@ -202,6 +243,20 @@ export const translations = {
     "footer.rights": "Todos los derechos reservados.",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
+
+    // Demo Links
+    "demo.title": "Prueba los Dashboards en Vivo",
+    "demo.subtitle": "Explora el flujo completo: crea facturas, financia como inversor, y ve el auto-split en acción.",
+    "demo.smeTitle": "Dashboard SME",
+    "demo.smeDesc": "Sube facturas, recibe adelantos USDC instantáneos, y ve tu Reputation Passport on-chain.",
+    "demo.investorTitle": "Dashboard Investor",
+    "demo.investorDesc": "Explora el marketplace de facturas verificadas y financia con un clic.",
+    "demo.contractTitle": "Smart Contract",
+    "demo.contractDesc": "Ve el contrato Soroban en Stellar Testnet. Verifica el auto-split y la lógica de settlement.",
+    "demo.tryIt": "Probar Ahora",
+    "demo.viewExplorer": "Ver en Explorer",
+    "demo.createInvoice": "Crear Factura Demo",
+    "demo.viewContract": "Ver Contrato en Stellar Expert",
 
     // Stages
     "stage.created": "Creada",
@@ -382,6 +437,47 @@ export const translations = {
     "proof.carlosRole": "DeFi Investor, Mexico",
     "proof.earlyTracking": "3-country pilots | 50+ SMEs | $2.5M invoices tokenized",
 
+    // Roadmap
+    "roadmap.badge": "Development Roadmap",
+    "roadmap.subtitle": "Our path to revolutionizing factoring in LATAM with blockchain technology.",
+    "roadmap.currentProgress": "MVP Complete - Contract deployed on Stellar Testnet",
+    "roadmap.complete": "✓ Complete",
+    "roadmap.upcoming": "Upcoming",
+    
+    // Phase 1
+    "roadmap.phase1": "Phase 1",
+    "roadmap.phase1Title": "MVP",
+    "roadmap.phase1Item1": "Smart contract development in Rust/Soroban",
+    "roadmap.phase1Item2": "Contract deployment to Stellar Testnet",
+    "roadmap.phase1Item3": "Backend API server with Express",
+    "roadmap.phase1Item4": "Frontend dashboard with Next.js",
+    "roadmap.phase1Item5": "Complete demo flow (create → fund → settle)",
+    "roadmap.phase1Item6": "i18n support (Spanish/English)",
+    
+    // Phase 2
+    "roadmap.phase2": "Phase 2",
+    "roadmap.phase2Title": "Beta Launch",
+    "roadmap.phase2Item1": "Freighter wallet integration",
+    "roadmap.phase2Item2": "Real Anchor integration (Anclap, Bitso)",
+    "roadmap.phase2Item3": "KYC/KYB integration via partners",
+    "roadmap.phase2Item4": "First 100 SMEs onboarding (Mexico)",
+    
+    // Phase 3
+    "roadmap.phase3": "Phase 3",
+    "roadmap.phase3Title": "Market Expansion",
+    "roadmap.phase3Item1": "Colombia & Brazil market launch",
+    "roadmap.phase3Item2": "Institutional LP onboarding",
+    "roadmap.phase3Item3": "AI-powered risk scoring model",
+    "roadmap.phase3Item4": "Mobile app (React Native)",
+    
+    // Phase 4
+    "roadmap.phase4": "Phase 4",
+    "roadmap.phase4Title": "Scale",
+    "roadmap.phase4Item1": "Stellar Mainnet deployment",
+    "roadmap.phase4Item2": "Peru and Chile expansion",
+    "roadmap.phase4Item3": "DeFi integrations (lending pools)",
+    "roadmap.phase4Item4": "Secondary market for invoice tokens",
+
     // Conversion (Pricing/FAQ/CTA)
     "pricing.title": "Transparent Pricing",
     "pricing.subtitle": "No hidden costs. You only pay when you receive liquidity.",
@@ -404,6 +500,20 @@ export const translations = {
     "footer.rights": "All rights reserved.",
     "footer.privacy": "Privacy Policy",
     "footer.terms": "Terms of Service",
+
+    // Demo Links
+    "demo.title": "Try the Live Dashboards",
+    "demo.subtitle": "Explore the full flow: create invoices, fund as investor, and see auto-split in action.",
+    "demo.smeTitle": "SME Dashboard",
+    "demo.smeDesc": "Upload invoices, receive instant USDC advances, and view your on-chain Reputation Passport.",
+    "demo.investorTitle": "Investor Dashboard",
+    "demo.investorDesc": "Browse the verified invoice marketplace and fund with one click.",
+    "demo.contractTitle": "Smart Contract",
+    "demo.contractDesc": "View the Soroban contract on Stellar Testnet. Verify the auto-split and settlement logic.",
+    "demo.tryIt": "Try Now",
+    "demo.viewExplorer": "View on Explorer",
+    "demo.createInvoice": "Create Demo Invoice",
+    "demo.viewContract": "View Contract on Stellar Expert",
 
     // Stages
     "stage.created": "Created",

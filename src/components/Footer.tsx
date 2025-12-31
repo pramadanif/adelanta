@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Twitter, Linkedin, Github, Mail } from 'lucide-react';
 import { useLocale } from '@/components/LocaleProvider';
 
@@ -16,7 +17,9 @@ export const Footer: React.FC = () => {
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-accent rounded-br-lg rounded-tl-lg flex items-center justify-center font-bold">A</div>
+              <div className="w-8 h-8 rounded-lg overflow-hidden bg-white/10 flex items-center justify-center">
+                <Image src="/logo.png" alt="Adelanta" width={32} height={32} className="object-contain" />
+              </div>
               <span className="font-heading font-bold text-xl">Adelanta</span>
             </div>
             <p className="text-blue-200 text-sm mb-6 leading-relaxed">
