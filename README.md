@@ -485,7 +485,75 @@ Content-Type: application/json
 │                                                                           │
 └──────────────────────────────────────────────────────────────────────────┘
 ```
+### Flow Diagrams (Mermaid)
 
+#### Invoice Lifecycle
+
+```mermaid
+flowchart TD
+    A[📄 SME Upload Invoice] --> B[🔍 Validate & Tokenize]
+    B --> C[📢 List on Marketplace]
+    C --> D[💰 Investor Funds 90%]
+    D --> E[⚡ SME receives USDC]
+    E --> F[⏳ Wait 60-90 days]
+    F --> G[🏛️ Corporate Pays Bank]
+    G --> H[🔄 Anchor converts to USDC]
+    H --> I[📜 Soroban Auto-Split]
+    I --> J[✅ Lender: Principal + Fee]
+    I --> K[✅ SME: Remainder]
+    I --> L[✅ Protocol: 0.5%]
+```
+
+#### Settlement Auto-Split
+
+```mermaid
+flowchart LR
+    A[Corporate pays $8,000] --> B[Anchor → USDC]
+    B --> C[Smart Contract]
+    C --> D[Lender $7,344]
+    C --> E[SME $616]
+    C --> F[Protocol $40]
+```
+
+#### Contract State Machine
+
+```mermaid
+stateDiagram-v2
+    [*] --> Created: SME creates
+    Created --> Funded: Lender funds
+    Created --> Cancelled: SME cancels
+    Funded --> Settled: Corporate pays
+    Funded --> Defaulted: Overdue
+    Settled --> [*]
+    Cancelled --> [*]
+    Defaulted --> Settled: Late payment
+```
+
+#### System Architecture
+
+```mermaid
+graph TB
+    subgraph Frontend
+        A[Next.js 16]
+        B[Freighter Wallet]
+    end
+    subgraph Backend
+        C[Express API]
+        D[Stellar SDK]
+    end
+    subgraph Stellar
+        E[Soroban Contract]
+        F[USDC Token]
+    end
+    subgraph Anchors
+        G[Bitso MX]
+        H[Anclap AR]
+    end
+    A --> C
+    B --> E
+    C --> D --> E
+    E --> F --> Anchors
+```
 ---
 
 ## 🛠 Tech Stack
