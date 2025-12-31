@@ -313,35 +313,35 @@ const ComparisonHeader: React.FC = () => {
   );
 };
 
-const Demo: React.FC = () => (
-  <section id="demo" className="py-20 bg-navy text-white text-center">
-    <div className="container mx-auto px-4">
-      <Reveal>
-        <DemoTitle />
-        <div className="max-w-4xl mx-auto aspect-video bg-gray-900 rounded-2xl shadow-2xl flex items-center justify-center border border-white/10 group cursor-pointer relative overflow-hidden">
-           <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20"></div>
-           {/* Placeholder for Video/Gif */}
-           <div className="text-center z-10 group-hover:scale-110 transition-transform duration-300">
-             <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-4 pl-1 shadow-lg shadow-accent/50">
-               <Play size={40} fill="white" />
-             </div>
-             <DemoCta />
-           </div>
-        </div>
-      </Reveal>
-    </div>
-  </section>
-);
+// const Demo: React.FC = () => (
+//   <section id="demo" className="py-20 bg-navy text-white text-center">
+//     <div className="container mx-auto px-4">
+//       <Reveal>
+//         <DemoTitle />
+//         <div className="max-w-4xl mx-auto aspect-video bg-gray-900 rounded-2xl shadow-2xl flex items-center justify-center border border-white/10 group cursor-pointer relative overflow-hidden">
+//            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20"></div>
+//            {/* Placeholder for Video/Gif */}
+//            <div className="text-center z-10 group-hover:scale-110 transition-transform duration-300">
+//              <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-4 pl-1 shadow-lg shadow-accent/50">
+//                <Play size={40} fill="white" />
+//              </div>
+//              <DemoCta />
+//            </div>
+//         </div>
+//       </Reveal>
+//     </div>
+//   </section>
+// );
 
-const DemoTitle: React.FC = () => {
-  const { t } = useLocale();
-  return <h2 className="text-3xl font-heading font-bold mb-8">{t('proof.demoTitle')}</h2>;
-};
+// const DemoTitle: React.FC = () => {
+//   const { t } = useLocale();
+//   return <h2 className="text-3xl font-heading font-bold mb-8">{t('proof.demoTitle')}</h2>;
+// };
 
-const DemoCta: React.FC = () => {
-  const { t } = useLocale();
-  return <p className="font-semibold text-lg">{t('proof.demoCta')}</p>;
-};
+// const DemoCta: React.FC = () => {
+//   const { t } = useLocale();
+//   return <p className="font-semibold text-lg">{t('proof.demoCta')}</p>;
+// };
 
 const Testimonials: React.FC = () => {
   const { t } = useLocale();
@@ -406,7 +406,7 @@ const EarlyTraction: React.FC = () => {
 export const Proof: React.FC = () => (
   <>
     <DemoLinks />
-    <Demo />
+    {/* <Demo /> */}
     <Comparison />
     <EarlyTraction />
     <Timeline />
