@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { CheckCircle, Play, Star, User } from 'lucide-react';
 import { Reveal } from './ui/Reveal';
 import { TimelineItem, Testimonial } from '@/types';
+import { useLocale } from '@/components/LocaleProvider';
 
 // DATA
 const timelineData: TimelineItem[] = [
@@ -13,16 +14,11 @@ const timelineData: TimelineItem[] = [
   { quarter: 'Q4 2025', title: 'Institucional', description: 'Partnerships con Lenders Institucionales y DeFi Protocols' },
 ];
 
-const testimonials: Testimonial[] = [
-  { quote: "Antes esperaba 90 días. Con Adelanta, tengo liquidez el mismo día. Salvó mi agencia.", author: "Maria G.", role: "Design Agency, Bogota" },
-  { quote: "La transparencia de los smart contracts nos da seguridad para invertir en deuda PYME.", author: "Carlos R.", role: "DeFi Investor, Mexico" },
-];
-
 // SUB-COMPONENTS
 const Timeline: React.FC = () => (
   <section className="py-20 bg-white overflow-hidden">
     <div className="container mx-auto px-4">
-      <h2 className="text-3xl font-heading font-bold text-navy text-center mb-16">Roadmap</h2>
+      <TimelineTitle />
       <div className="relative border-l-4 border-lightblue ml-6 md:ml-auto md:mr-auto md:w-2 bg-lightblue h-full absolute left-1/2"></div>
       <div className="space-y-12 relative">
         {timelineData.map((item, idx) => (
@@ -45,18 +41,23 @@ const Timeline: React.FC = () => (
   </section>
 );
 
+const TimelineTitle: React.FC = () => {
+  const { t } = useLocale();
+  return (
+    <h2 className="text-3xl font-heading font-bold text-navy text-center mb-16">{t('proof.roadmap')}</h2>
+  );
+};
+
 const Comparison: React.FC = () => (
   <section className="py-20 bg-neutral">
     <div className="container mx-auto px-4 md:px-8">
       <Reveal>
-        <h2 className="text-3xl font-heading font-bold text-navy text-center mb-12">Adelanta vs. Tradicional</h2>
+        <ComparisonTitle />
         <div className="overflow-x-auto">
           <table className="w-full bg-white shadow-lg rounded-xl overflow-hidden min-w-[600px]">
             <thead className="bg-navy text-white">
               <tr>
-                <th className="py-4 px-6 text-left">Característica</th>
-                <th className="py-4 px-6 text-center text-gray-300 font-normal">Factoring Tradicional</th>
-                <th className="py-4 px-6 text-center bg-primary font-bold text-accent text-lg w-1/3">Adelanta</th>
+                <ComparisonHeader />
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-100">
@@ -82,11 +83,29 @@ const Comparison: React.FC = () => (
   </section>
 );
 
+const ComparisonTitle: React.FC = () => {
+  const { t } = useLocale();
+  return (
+    <h2 className="text-3xl font-heading font-bold text-navy text-center mb-12">{t('proof.compareTitle')}</h2>
+  );
+};
+
+const ComparisonHeader: React.FC = () => {
+  const { t } = useLocale();
+  return (
+    <>
+      <th className="py-4 px-6 text-left">{t('proof.table.feature')}</th>
+      <th className="py-4 px-6 text-center text-gray-300 font-normal">{t('proof.table.traditional')}</th>
+      <th className="py-4 px-6 text-center bg-primary font-bold text-accent text-lg w-1/3">{t('proof.table.adelanta')}</th>
+    </>
+  );
+};
+
 const Demo: React.FC = () => (
   <section id="demo" className="py-20 bg-navy text-white text-center">
     <div className="container mx-auto px-4">
       <Reveal>
-        <h2 className="text-3xl font-heading font-bold mb-8">Mira como funciona</h2>
+        <DemoTitle />
         <div className="max-w-4xl mx-auto aspect-video bg-gray-900 rounded-2xl shadow-2xl flex items-center justify-center border border-white/10 group cursor-pointer relative overflow-hidden">
            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-accent/20"></div>
            {/* Placeholder for Video/Gif */}
@@ -94,7 +113,7 @@ const Demo: React.FC = () => (
              <div className="w-20 h-20 bg-accent rounded-full flex items-center justify-center mx-auto mb-4 pl-1 shadow-lg shadow-accent/50">
                <Play size={40} fill="white" />
              </div>
-             <p className="font-semibold text-lg">Ver Demo Completo</p>
+             <DemoCta />
            </div>
         </div>
       </Reveal>
@@ -102,35 +121,81 @@ const Demo: React.FC = () => (
   </section>
 );
 
-const Testimonials: React.FC = () => (
+const DemoTitle: React.FC = () => {
+  const { t } = useLocale();
+  return <h2 className="text-3xl font-heading font-bold mb-8">{t('proof.demoTitle')}</h2>;
+};
+
+const DemoCta: React.FC = () => {
+  const { t } = useLocale();
+  return <p className="font-semibold text-lg">{t('proof.demoCta')}</p>;
+};
+
+const Testimonials: React.FC = () => {
+  const { t } = useLocale();
+  return (
   <section className="py-20 bg-white">
      <div className="container mx-auto px-4 text-center">
-        <h2 className="text-3xl font-heading font-bold text-navy mb-12">Lo que dicen los usuarios</h2>
+  <TestimonialsTitle />
         <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-           {testimonials.map((t, i) => (
-              <Reveal key={i} delay={i * 100}>
-                 <div className="bg-neutral p-8 rounded-xl relative">
-                    <div className="text-accent mb-4"><Star fill="#E38E49" size={24} /></div>
-                    <p className="text-lg italic text-gray-700 mb-6">"{t.quote}"</p>
-                    <div className="flex items-center justify-center gap-3">
-                       <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-500"><User size={20} /></div>
-                       <div className="text-left">
-                          <div className="font-bold text-navy text-sm">{t.author}</div>
-                          <div className="text-xs text-gray-500">{t.role}</div>
-                       </div>
+           <Reveal delay={0}>
+              <div className="bg-neutral p-8 rounded-xl relative">
+                 <div className="text-accent mb-4"><Star fill="#E38E49" size={24} /></div>
+                 <p className="text-lg italic text-gray-700 mb-6">"{t('proof.mariaTesto')}"</p>
+                 <div className="flex items-center justify-center gap-3">
+                    <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-500"><User size={20} /></div>
+                    <div className="text-left">
+                       <div className="font-bold text-navy text-sm">{t('proof.mariaAuthor')}</div>
+                       <div className="text-xs text-gray-500">{t('proof.mariaRole')}</div>
                     </div>
                  </div>
-              </Reveal>
-           ))}
+              </div>
+           </Reveal>
+           <Reveal delay={100}>
+              <div className="bg-neutral p-8 rounded-xl relative">
+                 <div className="text-accent mb-4"><Star fill="#E38E49" size={24} /></div>
+                 <p className="text-lg italic text-gray-700 mb-6">"{t('proof.carlosTesto')}"</p>
+                 <div className="flex items-center justify-center gap-3">
+                    <div className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center text-gray-500"><User size={20} /></div>
+                    <div className="text-left">
+                       <div className="font-bold text-navy text-sm">{t('proof.carlosAuthor')}</div>
+                       <div className="text-xs text-gray-500">{t('proof.carlosRole')}</div>
+                    </div>
+                 </div>
+              </div>
+           </Reveal>
         </div>
      </div>
   </section>
-);
+  );
+};
+
+const TestimonialsTitle: React.FC = () => {
+  const { t } = useLocale();
+  return <h2 className="text-3xl font-heading font-bold text-navy mb-12">{t('proof.testimonials')}</h2>;
+};
+
+const EarlyTraction: React.FC = () => {
+  const { t } = useLocale();
+  return (
+    <section className="py-16 bg-gradient-to-r from-accent/5 to-primary/5 border-y border-gray-200">
+      <div className="container mx-auto px-4">
+        <Reveal>
+          <div className="text-center">
+            <p className="text-sm uppercase tracking-widest font-bold text-primary mb-2">Early Traction</p>
+            <p className="text-lg md:text-xl font-semibold text-navy">{t('proof.earlyTracking')}</p>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+};
 
 export const Proof: React.FC = () => (
   <>
     <Demo />
     <Comparison />
+    <EarlyTraction />
     <Timeline />
     <Testimonials />
   </>

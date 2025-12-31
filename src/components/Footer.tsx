@@ -2,8 +2,12 @@
 
 import React from 'react';
 import { Twitter, Linkedin, Github, Mail } from 'lucide-react';
+import { useLocale } from '@/components/LocaleProvider';
 
 export const Footer: React.FC = () => {
+  const { t } = useLocale();
+  const taglineLines = t('footer.tagline').split('\n');
+
   return (
     <footer className="bg-navy text-white pt-16 pb-8 border-t border-white/10">
       <div className="container mx-auto px-4 md:px-8">
@@ -16,8 +20,9 @@ export const Footer: React.FC = () => {
               <span className="font-heading font-bold text-xl">Adelanta</span>
             </div>
             <p className="text-blue-200 text-sm mb-6 leading-relaxed">
-              Trust is Code. Liquidity is Instant.<br/>
-              Revolucionando el factoring en LATAM con Stellar Soroban.
+              {taglineLines[0]}
+              {taglineLines[1] ? <br /> : null}
+              {taglineLines[1] ?? null}
             </p>
             <div className="flex gap-4">
               <a href="#" className="text-blue-200 hover:text-white transition-colors"><Twitter size={20} /></a>
@@ -28,7 +33,7 @@ export const Footer: React.FC = () => {
 
           {/* Product Links */}
           <div>
-            <h4 className="font-bold mb-4 text-accent">Producto</h4>
+            <h4 className="font-bold mb-4 text-accent">{t('footer.product')}</h4>
             <ul className="space-y-2 text-sm text-blue-100">
               <li><a href="#solucion" className="hover:text-white hover:underline">Solución</a></li>
               <li><a href="#" className="hover:text-white hover:underline">Protocol Docs</a></li>
@@ -39,7 +44,7 @@ export const Footer: React.FC = () => {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-bold mb-4 text-accent">Empresa</h4>
+            <h4 className="font-bold mb-4 text-accent">{t('footer.company')}</h4>
             <ul className="space-y-2 text-sm text-blue-100">
               <li><a href="#" className="hover:text-white hover:underline">About Us</a></li>
               <li><a href="#" className="hover:text-white hover:underline">Blog</a></li>
@@ -50,26 +55,26 @@ export const Footer: React.FC = () => {
 
           {/* Newsletter */}
           <div>
-            <h4 className="font-bold mb-4 text-accent">Mantente informado</h4>
-            <p className="text-xs text-blue-200 mb-4">Recibe las últimas noticias del protocolo.</p>
+            <h4 className="font-bold mb-4 text-accent">{t('footer.stay')}</h4>
+            <p className="text-xs text-blue-200 mb-4">{t('footer.newsletterDesc')}</p>
             <form className="flex flex-col gap-2" onSubmit={(e) => e.preventDefault()}>
               <input 
                 type="email" 
-                placeholder="tu@email.com" 
+                placeholder={t('footer.email')} 
                 className="bg-white/10 border border-white/20 rounded-lg px-4 py-2 text-sm text-white placeholder-blue-300 focus:outline-none focus:border-accent"
               />
               <button type="submit" className="bg-accent hover:bg-orange-600 text-white text-sm font-bold py-2 rounded-lg transition-colors">
-                Suscribirse
+                {t('footer.subscribe')}
               </button>
             </form>
           </div>
         </div>
 
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-blue-300">
-          <p>&copy; {new Date().getFullYear()} Adelanta Protocol. Todos los derechos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} Adelanta Protocol. {t('footer.rights')}</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
+            <a href="#" className="hover:text-white">{t('footer.privacy')}</a>
+            <a href="#" className="hover:text-white">{t('footer.terms')}</a>
           </div>
         </div>
       </div>

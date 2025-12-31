@@ -3,6 +3,7 @@
 import React from 'react';
 import { Upload, CreditCard, Users, Shield, Briefcase, TrendingUp } from 'lucide-react';
 import { Reveal } from './ui/Reveal';
+import { useLocale } from '@/components/LocaleProvider';
 
 const features = [
   {
@@ -32,13 +33,14 @@ const features = [
 ];
 
 export const Features: React.FC = () => {
+  const { t } = useLocale();
   return (
     <>
       {/* FEATURES */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4 md:px-8">
           <Reveal>
-            <h2 className="text-3xl font-heading font-bold text-navy mb-12 text-center">Fitur Adelanta</h2>
+            <h2 className="text-3xl font-heading font-bold text-navy mb-12 text-center">{t('features.title')}</h2>
           </Reveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((f, i) => (
@@ -60,7 +62,7 @@ export const Features: React.FC = () => {
       <section id="target" className="py-20 bg-gradient-to-br from-navy to-primary text-white">
         <div className="container mx-auto px-4 md:px-8">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16">¿Para quién es Adelanta?</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16">{t('target.title')}</h2>
           </Reveal>
           
           <div className="grid md:grid-cols-2 gap-8 md:gap-12">
@@ -71,13 +73,11 @@ export const Features: React.FC = () => {
                   <div className="p-3 bg-accent rounded-full">
                     <Briefcase size={32} />
                   </div>
-                  <h3 className="text-2xl font-bold">PYMEs & Freelancers</h3>
+                  <h3 className="text-2xl font-bold">{t('target.primaryTitle')}</h3>
                 </div>
-                <p className="text-blue-100 mb-8 text-lg">
-                  Agencias de diseño, desarrolladores, proveedores B2B que trabajan con corporativos grandes pero no pueden esperar 60 días para cobrar.
-                </p>
+                <p className="text-blue-100 mb-8 text-lg">{t('target.primaryDesc')}</p>
                 <button className="w-full bg-white text-primary font-bold py-3 rounded-xl hover:bg-blue-50 transition-colors">
-                  Daftar Como SME
+                  {t('target.primaryCta')}
                 </button>
               </div>
              </Reveal>
@@ -89,13 +89,11 @@ export const Features: React.FC = () => {
                   <div className="p-3 bg-green-500 rounded-full">
                     <TrendingUp size={32} />
                   </div>
-                  <h3 className="text-2xl font-bold">Liquidity Providers</h3>
+                  <h3 className="text-2xl font-bold">{t('target.secondaryTitle')}</h3>
                 </div>
-                <p className="text-gray-300 mb-8 text-lg">
-                  Instituciones y buscadores de DeFi Yield buscando RWA (Real World Assets) respaldados por deuda corporativa real.
-                </p>
+                <p className="text-gray-300 mb-8 text-lg">{t('target.secondaryDesc')}</p>
                 <button className="w-full border-2 border-white/30 text-white font-bold py-3 rounded-xl hover:bg-white/10 transition-colors">
-                  Convertirse en LP
+                  {t('target.secondaryCta')}
                 </button>
               </div>
              </Reveal>
@@ -110,7 +108,7 @@ export const Features: React.FC = () => {
              <Reveal>
                 <div>
                    <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy mb-6">
-                      Scalability & Impact: <br/><span className="text-accent">Unlock $900B Economy</span>
+                 {t('impact.title')} <br/><span className="text-accent">{t('impact.subtitle')}</span>
                    </h2>
                    <div className="space-y-6">
                       <div className="flex gap-4">
@@ -118,8 +116,8 @@ export const Features: React.FC = () => {
                             <div className="w-2 h-2 rounded-full bg-navy mt-2"></div>
                          </div>
                          <p className="text-gray-700">
-                            <strong className="block text-navy text-lg mb-1">Modelo Agnóstico</strong>
-                            Escalable a cualquier país con un Stellar Anchor: México, Brasil, Argentina, Colombia, Perú.
+                           <strong className="block text-navy text-lg mb-1">{t('impact.modelTitle')}</strong>
+                           {t('impact.modelDesc')}
                          </p>
                       </div>
                       <div className="flex gap-4">
@@ -127,8 +125,8 @@ export const Features: React.FC = () => {
                             <div className="w-2 h-2 rounded-full bg-navy mt-2"></div>
                          </div>
                          <p className="text-gray-700">
-                            <strong className="block text-navy text-lg mb-1">Impacto Real</strong>
-                            Resuelve la causa #1 de quiebra de PYMEs. Inyecta millones de regreso a la economía real, creando empleos y estabilidad.
+                           <strong className="block text-navy text-lg mb-1">{t('impact.realTitle')}</strong>
+                           {t('impact.realDesc')}
                          </p>
                       </div>
                    </div>
@@ -139,16 +137,16 @@ export const Features: React.FC = () => {
                 <div className="bg-white p-8 rounded-2xl shadow-xl">
                    <div className="text-center border-b border-gray-100 pb-6 mb-6">
                       <div className="text-5xl font-extrabold text-navy mb-2">$900B</div>
-                      <div className="text-gray-500 uppercase tracking-wide text-sm font-semibold">Financing Gap en LATAM</div>
+                     <div className="text-gray-500 uppercase tracking-wide text-sm font-semibold">{t('impact.gapLabel')}</div>
                    </div>
                    <div className="grid grid-cols-2 gap-4 text-center">
                       <div>
-                         <div className="text-3xl font-bold text-accent">5 Países</div>
-                         <div className="text-xs text-gray-400">Objetivo Inicial</div>
+                       <div className="text-3xl font-bold text-accent">{t('impact.countries')}</div>
+                       <div className="text-xs text-gray-400">{t('impact.countriesNote')}</div>
                       </div>
                       <div>
-                         <div className="text-3xl font-bold text-accent">1M+</div>
-                         <div className="text-xs text-gray-400">SMEs Potenciales</div>
+                       <div className="text-3xl font-bold text-accent">{t('impact.smes')}</div>
+                       <div className="text-xs text-gray-400">{t('impact.smesNote')}</div>
                       </div>
                    </div>
                 </div>

@@ -3,6 +3,7 @@
 import React from 'react';
 import { Clock, FileX, Lock, Zap, Code, Globe, ArrowRight } from 'lucide-react';
 import { Reveal } from './ui/Reveal';
+import { useLocale } from '@/components/LocaleProvider';
 
 const PainCard: React.FC<{ icon: React.ReactNode; title: string; desc: string }> = ({ icon, title, desc }) => (
   <div className="bg-white p-8 rounded-2xl shadow-lg border-b-4 border-red-400 hover:shadow-xl transition-shadow">
@@ -25,18 +26,39 @@ const WhyStellarCard: React.FC<{ icon: React.ReactNode; title: string; desc: str
 );
 
 export const ProblemSolution: React.FC = () => {
+  const { t } = useLocale();
   return (
     <>
+      {/* MARIA STORY INTRO */}
+      <section className="py-20 bg-gradient-to-r from-accent/10 via-primary/10 to-navy/10">
+        <div className="container mx-auto px-4 md:px-8">
+          <Reveal>
+            <div className="max-w-3xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy mb-6">
+                {t('story.title')}
+              </h2>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                {t('story.subtitle')}
+              </p>
+              <div className="h-1 w-20 bg-gradient-to-r from-accent to-primary mx-auto mb-6"></div>
+              <p className="text-base md:text-lg font-semibold text-navy">
+                {t('story.problemHook')}
+              </p>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* PAIN SECTION */}
       <section id="problema" className="py-20 bg-neutral">
         <div className="container mx-auto px-4 md:px-8">
           <Reveal>
             <div className="text-center max-w-3xl mx-auto mb-16">
               <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy mb-4">
-                El Problema: $900B en Capital Atrapado
+                {t('problem.title')}
               </h2>
               <p className="text-lg text-gray-600">
-                SMEs de LATAM esperan <span className="font-bold text-red-500">60-90 días</span> por pagos... y eso mata sus negocios.
+                {t('problem.subtitle')}
               </p>
             </div>
           </Reveal>
@@ -45,29 +67,29 @@ export const ProblemSolution: React.FC = () => {
             <Reveal delay={100}>
               <PainCard 
                 icon={<Clock size={32} />}
-                title="Espera Prolongada"
-                desc="Esperar 60-90 días para cobrar es normal en la industria, pero inaceptable para tu flujo de caja diario."
+                title={t('problem.wait')}
+                desc={t('problem.waitDesc')}
               />
             </Reveal>
             <Reveal delay={200}>
               <PainCard 
                 icon={<FileX size={32} />}
-                title="Factoring Antiguo"
-                desc="El factoring tradicional requiere papeleo físico complejo que tus clientes corporativos simplemente rechazan."
+                title={t('problem.factoring')}
+                desc={t('problem.factoringDesc')}
               />
             </Reveal>
             <Reveal delay={300}>
               <PainCard 
                 icon={<Lock size={32} />}
-                title="Brecha de Confianza"
-                desc="Los prestamistas no confían en si la PYME pagará cuando finalmente reciba el dinero. El riesgo es alto."
+                title={t('problem.trust')}
+                desc={t('problem.trustDesc')}
               />
             </Reveal>
           </div>
           
           <div className="mt-12 text-center">
              <span className="inline-block bg-navy text-white px-6 py-2 rounded-full font-bold text-sm shadow-lg">
-                Déficit de financiamiento en LATAM: $900 Billones
+                {t('problem.badge')}
              </span>
           </div>
         </div>
@@ -78,13 +100,13 @@ export const ProblemSolution: React.FC = () => {
         <div className="container mx-auto px-4 md:px-8">
             <Reveal>
               <div className="text-center mb-16">
-                <span className="text-accent font-bold tracking-widest uppercase text-sm">Innovación</span>
+                <span className="text-accent font-bold tracking-widest uppercase text-sm">{t('solution.badge')}</span>
                 <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy mt-2 mb-4">
-                  La Solución: Factoring Programable
+                  {t('solution.title')}
                 </h2>
                 <p className="text-gray-600 max-w-2xl mx-auto">
-                  Adelanta usa Smart Contracts en Stellar Soroban para crear "Self-Settling Invoices".
-                  <br/><span className="font-bold text-primary">Trust is Code. No paperwork. No middle man.</span>
+                  {t('solution.desc1')}
+                  <br/><span className="font-bold text-primary">{t('solution.desc2')}</span>
                 </p>
               </div>
             </Reveal>
@@ -95,10 +117,10 @@ export const ProblemSolution: React.FC = () => {
                 
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8 relative z-10">
                     {[
-                        { title: "Tokenize", desc: "Sube tu invoice. Adelanta lo mintea como asset digital.", step: "1" },
-                        { title: "Instant Liquidity", desc: "Provider financia 90% en USDC al instante.", step: "2" },
-                        { title: "Smart Settlement", desc: "Cliente paga, Anchor convierte a USDC y activa contrato.", step: "3" },
-                        { title: "Auto-Split", desc: "Contract repaga al lender + fee. Tú recibes el resto.", step: "4" }
+                      { title: t('steps.tokenize'), desc: t('steps.tokenizeDesc'), step: "1" },
+                      { title: t('steps.liquidity'), desc: t('steps.liquidityDesc'), step: "2" },
+                      { title: t('steps.settlement'), desc: t('steps.settlementDesc'), step: "3" },
+                      { title: t('steps.autosplit'), desc: t('steps.autosplitDesc'), step: "4" }
                     ].map((item, idx) => (
                         <Reveal delay={idx * 150} key={idx}>
                             <div className="bg-white p-6 rounded-xl border border-gray-100 shadow-xl text-center h-full flex flex-col items-center">
@@ -120,8 +142,8 @@ export const ProblemSolution: React.FC = () => {
         <div className="container mx-auto px-4 md:px-8">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-navy text-center mb-12">
-              ¿Por qué Stellar?
-              <span className="block text-xl md:text-2xl font-normal text-primary mt-2">La única blockchain lista para el mundo real en LATAM</span>
+              {t('stellar.title')}
+              <span className="block text-xl md:text-2xl font-normal text-primary mt-2">{t('stellar.subtitle')}</span>
             </h2>
           </Reveal>
 
@@ -129,22 +151,22 @@ export const ProblemSolution: React.FC = () => {
             <Reveal delay={0}>
               <WhyStellarCard 
                 icon={<Globe size={40} />}
-                title="Anchor Interoperability"
-                desc="Red de Anchors regulados (MoneyGram, Bitso, Anclap) que aceptan fiat local (MXN, COP, BRL). Clientes pagan vía banco, settlement on-chain."
+                title={t('stellar.anchorTitle')}
+                desc={t('stellar.anchorDesc')}
               />
             </Reveal>
             <Reveal delay={150}>
               <WhyStellarCard 
                 icon={<Code size={40} />}
-                title="Soroban Smart Contracts"
-                desc="Lógica de revenue split forzada por código. El dinero nunca toca tu wallet primero; el código asegura el repago. Confianza absoluta."
+                title={t('stellar.sorobanTitle')}
+                desc={t('stellar.sorobanDesc')}
               />
             </Reveal>
             <Reveal delay={300}>
               <WhyStellarCard 
                 icon={<Zap size={40} />}
-                title="Low-Cost & Fast"
-                desc="Minting de tokens cuesta fracciones de centavo. Finalidad en 5 segundos vs horas en otras cadenas. Ideal para facturas pequeñas."
+                title={t('stellar.fastTitle')}
+                desc={t('stellar.fastDesc')}
               />
             </Reveal>
           </div>

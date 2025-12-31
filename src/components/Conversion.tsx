@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { Check, ChevronDown, ChevronUp } from 'lucide-react';
 import { Reveal } from './ui/Reveal';
 import { FAQItem, PricingTier } from '@/types';
+import { useLocale } from '@/components/LocaleProvider';
 
 // DATA
 const faqData: FAQItem[] = [
@@ -22,11 +23,12 @@ const pricingData: PricingTier[] = [
 // SUB-COMPONENTS
 const FAQ: React.FC = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { t } = useLocale();
 
   return (
     <section className="py-20 bg-neutral">
       <div className="container mx-auto px-4 max-w-3xl">
-        <h2 className="text-3xl font-heading font-bold text-navy text-center mb-12">Preguntas Frecuentes</h2>
+        <h2 className="text-3xl font-heading font-bold text-navy text-center mb-12">{t('faq.title')}</h2>
         <div className="space-y-4">
           {faqData.map((item, idx) => (
             <div key={idx} className="bg-white rounded-lg shadow-sm overflow-hidden">
@@ -51,16 +53,15 @@ const FAQ: React.FC = () => {
 const Pricing: React.FC = () => (
   <section className="py-20 bg-white">
     <div className="container mx-auto px-4">
-      <h2 className="text-3xl font-heading font-bold text-navy text-center mb-4">Precios Transparentes</h2>
-      <p className="text-center text-gray-500 mb-12">Sin costos ocultos. Solo pagas cuando recibes liquidez.</p>
+      <PricingHeader />
       
       <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
         {pricingData.map((tier, idx) => (
           <Reveal key={idx} delay={idx * 100}>
             <div className={`relative p-8 rounded-2xl border ${tier.recommended ? 'border-accent shadow-2xl bg-white scale-105 z-10' : 'border-gray-200 bg-neutral shadow-sm'} flex flex-col h-full`}>
-              {tier.recommended && <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-accent text-white px-4 py-1 rounded-full text-xs font-bold tracking-wide">RECOMENDADO</div>}
+              {tier.recommended && <PricingRecommendedBadge />}
               <h3 className="text-xl font-bold text-navy mb-2">{tier.name}</h3>
-              <div className="text-3xl font-extrabold text-primary mb-6">{tier.fee} <span className="text-sm font-normal text-gray-500">/ invoice</span></div>
+              <PricingFee fee={tier.fee} />
               <ul className="space-y-3 mb-8 flex-grow">
                 {tier.features.map((f, i) => (
                   <li key={i} className="flex items-center gap-2 text-sm text-gray-600">
@@ -79,26 +80,71 @@ const Pricing: React.FC = () => (
   </section>
 );
 
+const PricingHeader: React.FC = () => {
+  const { t } = useLocale();
+  return (
+    <>
+      <h2 className="text-3xl font-heading font-bold text-navy text-center mb-4">{t('pricing.title')}</h2>
+      <p className="text-center text-gray-500 mb-12">{t('pricing.subtitle')}</p>
+    </>
+  );
+};
+
+const PricingRecommendedBadge: React.FC = () => {
+  const { t } = useLocale();
+  return (
+    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-accent text-white px-4 py-1 rounded-full text-xs font-bold tracking-wide">
+      {t('pricing.recommended')}
+    </div>
+  );
+};
+
+const PricingFee: React.FC<{ fee: string }> = ({ fee }) => {
+  const { t } = useLocale();
+  return (
+    <div className="text-3xl font-extrabold text-primary mb-6">
+      {fee} <span className="text-sm font-normal text-gray-500">{t('pricing.perInvoice')}</span>
+    </div>
+  );
+};
+
 const CTA: React.FC = () => (
   <section id="cta" className="py-24 bg-gradient-to-r from-navy to-primary text-center text-white">
     <div className="container mx-auto px-4">
       <Reveal>
-        <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">¿Siap Unlock Liquidity Instant?</h2>
-        <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
-          Bergabunglah dengan ribuan SMEs di LATAM yang sudah menggunakan Adelanta para crecer sin límites.
-        </p>
+        <CTAHeader />
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <button className="bg-accent hover:bg-orange-600 text-white font-bold py-4 px-10 rounded-full shadow-xl hover:shadow-2xl transition-all transform hover:-translate-y-1 text-lg w-full sm:w-auto">
-            Mulai Sekarang - Daftar SME
+            <CTAPrimary />
           </button>
           <button className="bg-transparent border-2 border-white hover:bg-white/10 text-white font-bold py-4 px-10 rounded-full transition-all text-lg w-full sm:w-auto">
-            Jadi Liquidity Provider
+            <CTASecondary />
           </button>
         </div>
       </Reveal>
     </div>
   </section>
 );
+
+const CTAHeader: React.FC = () => {
+  const { t } = useLocale();
+  return (
+    <>
+      <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">{t('cta.title')}</h2>
+      <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">{t('cta.subtitle')}</p>
+    </>
+  );
+};
+
+const CTAPrimary: React.FC = () => {
+  const { t } = useLocale();
+  return <>{t('cta.primary')}</>;
+};
+
+const CTASecondary: React.FC = () => {
+  const { t } = useLocale();
+  return <>{t('cta.secondary')}</>;
+};
 
 export const Conversion: React.FC = () => (
   <>
