@@ -300,6 +300,8 @@ function calculateRiskLevel(smeId: string, amount: number): string {
 function generateBankAccount(country: string): string {
   const random = Math.floor(Math.random() * 1000000000000000000).toString().padStart(18, '0');
   switch (country) {
+    case 'CL':
+      return `CuentaRUT: ${random.substring(0, 12)}-${random.substring(12, 13)}`;
     case 'MX':
       return `CLABE: ${random}`;
     case 'AR':
@@ -308,6 +310,8 @@ function generateBankAccount(country: string): string {
       return `PIX: ${uuidv4()}`;
     case 'CO':
       return `NIT: ${random.substring(0, 10)}`;
+    case 'PE':
+      return `CCI: ${random.substring(0, 20)}`;
     default:
       return `ACCOUNT: ${random}`;
   }

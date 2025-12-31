@@ -102,7 +102,7 @@ Adelanta creates **"Self-Settling Invoices"** using Stellar Soroban smart contra
 │      Liquidity Provider funds 90% in USDC → SME receives instantly      │
 │                                                                          │
 │  3️⃣  INVISIBLE PAYMENT                                                   │
-│      Corporate pays to bank account (CLABE/CBU/PIX)                     │
+│      Corporate pays to bank account (CuentaRUT/CLABE/CBU/PIX)           │
 │      → Stellar Anchor converts fiat to USDC                             │
 │                                                                          │
 │  4️⃣  AUTO-SPLIT (The Magic!)                                             │
@@ -137,7 +137,7 @@ Stellar is **not just compatible** with this idea—it's the **ONLY blockchain**
 
 ### The "Invisible Crypto" Advantage
 
-**Corporate clients never touch crypto.** They pay via standard bank transfer (CLABE in Mexico, CBU in Argentina, PIX in Brazil). The Anchor handles fiat→USDC conversion automatically.
+**Corporate clients never touch crypto.** They pay via standard bank transfer (CuentaRUT in Chile, CLABE in Mexico, CBU in Argentina, PIX in Brazil). The Anchor handles fiat→USDC conversion automatically.
 
 ---
 
@@ -704,7 +704,7 @@ For an **$8,000 invoice** with 90% advance and 2% lender fee:
 | Metric | Target |
 |--------|--------|
 | **Financing Gap Addressed** | $900B in LATAM |
-| **Countries** | 5 (MX, CO, BR, AR, PE) |
+| **Countries** | 6 (CL, MX, CO, BR, AR, PE) |
 | **Potential SMEs** | 1M+ |
 | **Cost Reduction** | 60% vs traditional (2.3% vs 5-15%) |
 | **Settlement Time** | < 5 seconds (Soroban finality) |

@@ -15,7 +15,7 @@ export default function NewInvoicePage() {
   const { t } = useLocale();
   const [amount, setAmount] = useState("10000");
   const [payer, setPayer] = useState("Cliente Corporativo");
-  const [country, setCountry] = useState("CO");
+  const [country, setCountry] = useState("CL");
   const [industry, setIndustry] = useState("DESIGN");
   const [dueDate, setDueDate] = useState(() => {
     const date = new Date();
@@ -96,6 +96,7 @@ export default function NewInvoicePage() {
                   onChange={(e) => setCountry(e.target.value)}
                   className="mt-2 w-full border border-slate-200 rounded-lg px-3 py-2"
                 >
+                  <option value="CL">Chile (CLP)</option>
                   <option value="CO">Colombia (COP)</option>
                   <option value="MX">México (MXN)</option>
                   <option value="BR">Brasil (BRL)</option>
