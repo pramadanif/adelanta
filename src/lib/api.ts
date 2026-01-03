@@ -1,7 +1,7 @@
 // Adelanta Frontend - API Service
 // Connects to backend for invoice operations
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'https://adelanta.pramadani.site/api';
 
 // Types matching backend
 export type InvoiceStatus = 'created' | 'funded' | 'settled' | 'cancelled';
